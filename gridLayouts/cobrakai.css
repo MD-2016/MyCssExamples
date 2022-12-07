@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    background-color: black;
+    margin: 0 auto;
+}
+
+.layout {
+    padding-top: 9.375rem;
+    width: 30%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    row-gap: 2.188rem;
+    column-gap: 1em;
+    margin: 0 auto;
+}
+
+.item {
+    padding-top: 0.5em;
+}
+
+.pic a img {
+    display: inline-block;
+    border: 2px solid #e93f33;
+}
+
+img {
+    width: 8.75rem;
+    height: 8.75rem; 
+}
+
+.item .fightname a {
+    text-align: center;
+}
+
+
+a {
+    text-decoration: none;
+    color: #ffd700;
+    text-align: center;
+    transition: color .3s;
+    font-family: "Concert One", "IBM Plex Mono", sans-serif;
+    font-size: 1.125rem;
+}
+
+.fightname  {
+    text-decoration: none;
+    color: #ffd700;
+    text-align: center;
+    transition: color .3s;
+    font-family: "Concert One", "IBM Plex Mono", sans-serif;
+    font-size: 1.125rem;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #ffe665;
+    transition: color .3s ease-in-out;
+    cursor: pointer;
+}
+
+.fightname {
+    margin-top: 0.6em;
+    text-align: center;
+   
+}
+
+.item .fightname a {
+    text-align: center;
+    
+   
+}
+
+.item .fightname {
+    text-align: center;
+   
+}
+
+@media only screen and (max-width: 82.375rem) {
+    /* for mobile */
+    .layout {
+        width: 100%;
+        grid-template-columns: repeat(1, 1fr);
+        row-gap: 10rem;
+    }
+
+    a {
+        font-family: "IBM Plex Mono", sans-serif;
+        font-size: 4ch;
+    }
+
+    img {
+        width: 12.5rem;
+        height: 12.5rem;
+        text-align: center;
+    }
+
+    .fightname {
+        text-align: center;
+    }
+}
+
+@media (orientation: landscape) {
+    .layout {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
