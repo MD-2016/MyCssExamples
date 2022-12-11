@@ -57,7 +57,7 @@ img {
 figcaption {
     background-color: #2222;
     color: white;
-    font: "Concert One", sans-serif;
+    font-family: "Concert One", sans-serif;
     position: absolute;
     width: 8.75rem;
     bottom: 1.2rem;
