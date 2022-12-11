@@ -9,14 +9,15 @@ body {
 }
 
 .layout {
+    max-width: 75rem;
     padding-top: 9.375rem;
-    width: 30%;
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
     place-items: center;
     row-gap: 2.188rem;
     column-gap: 1em;
     margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
 }
 
 .item {
@@ -75,9 +76,9 @@ figcaption {
 }
 */
 
-
+/*
 @media only screen and (min-width: 200px)  and (max-width: 600px){
-    /* for mobile */
+    
     .layout {
         width: 100%;
         grid-template-columns: repeat(1, 1fr);
@@ -131,8 +132,4 @@ figcaption {
         grid-template-columns: repeat(4, 1fr);
     }
 }
-*/
-
-/*
- testing powershell script
 */
