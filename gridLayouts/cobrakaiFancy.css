@@ -69,13 +69,11 @@
     gap: 2.188rem 1em;
     margin: 0 auto;
     grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
-    text-align: center;
   }
 
   .item {
     padding-top: 0.5em;
     position: relative;
-    text-align: center;
   }
 
   a {
@@ -105,9 +103,17 @@
 
   figcaption {
     font-family: "Concert One", sans-serif;
-    position: absolute;
     text-align: center;
+    position: absolute;
     right: 0;
     left: 0;
     bottom: 3rem;
+    opacity: 0;
+    display: none;
   }
+
+  img:hover {
+    opacity: 0.3;
+  }
+
+  
