@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun With Image Overlay</title>
+    <style>
+
+        body {
+            height: 100%;
+            margin: 0 auto;
+        }
+        .wrapper {
+            position: relative;
+            height: 50%;
+            width: 50%;
+        }
+
+        .pic {
+            
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+
+        .middle {
+           position: absolute;
+           top: 50%;
+           left: 50%;
+           opacity: 0;
+           transition: .5s ease;
+           transform: translate(-50%, -50%);
+           -ms-transform: translate(-50%, -50%);
+           text-align: center;
+        }
+
+        .wrapper:hover .pic {
+            opacity: 0.3;
+        }
+
+        .wrapper:hover .middle {
+            opacity: 1;
+        }
+
+        .modifiedText {
+            background-color: #04aa6d;
+            color: white;
+            font-size: 1rem;
+            padding: 1rem 2rem; 
+        }
+
+        h2 {
+            text-align: center;
+        }
+        p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Fun with Image Overlays</h2>
+    <p>Hover over the image to see something cool</p>
+
+    <div class="wrapper">
+        <img src="https://picsum.photos/200?random=1" alt="random pic" class="pic" style="width:100%"/>
+        <div class="middle">
+            <div class="modifiedText">What could it be?</div>
+        </div>
+    </div>
+</body>
+</html>
