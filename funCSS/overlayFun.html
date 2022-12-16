@@ -7,10 +7,16 @@
     <title>Fun With Image Overlay</title>
     <style>
 
-        body {
+        html {
             height: 100%;
+        }
+        
+        body {
             margin: 0 auto;
-            background: linear-gradient(90deg, #414141 0%, #494972 100%);
+            background: #0F2027;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(45deg, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(45deg, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
         }
         .wrapper {
             position: relative;
@@ -46,7 +52,7 @@
         }
 
         .modifiedText {
-            background-color: #8803bd;
+            background-color: #880647;
             color: white;
             font-size: 1rem;
             padding: 1rem 2rem; 
@@ -56,7 +62,7 @@
             font-sizE: 4rem;
             text-align: center;
             background-color: red;
-            background-image: linear-gradient(45deg, #242223, #ff0000);
+            background-image: linear-gradient(45deg, #4d4a4ac0, #ff0000);
             background-size: 100%;
             background-repeat: repeat;
             background-clip: text;
@@ -89,7 +95,7 @@
     <div class="wrapper">
         <img src="https://picsum.photos/200?random=1" alt="random pic" class="pic" style="width:100%"/>
         <div class="middle">
-            <div class="modifiedText">What could it be?</div>
+            <div class="modifiedText">Randomly generated pic</div>
         </div>
     </div>
 </body>
