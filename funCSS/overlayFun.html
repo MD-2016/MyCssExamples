@@ -7,15 +7,25 @@
     <title>Fun With Image Overlay</title>
     <style>
 
+        * {
+            box-sizing: border-box;
+            border: 1px solid red;
+        }
+
         html {
-            min-height: 100%;
+            height: 100%;
+            overflow: hidden;
         }
 
         body {
             margin: 0 auto;
             background: #373B44;
+            /*
             background: -webkit-linear-gradient(to top, #4286f4, #373B44);
             background: linear-gradient(to top, #4286f4, #373B44);
+            */
+            background: linear-gradient(to top, #0090cd, #07061a);
+            background: -webkit-linear-gradient(to top, #0090cd, #07061a);
 
         }
         .wrapper {
@@ -59,8 +69,10 @@
         }
 
         h2 {
+            padding-top: 5rem;
             font-size: 4rem;
             text-align: center;
+            /*
             background-image: linear-gradient(45deg, #4d4a4ac0, #0DFF9F);
             background-size: 100%;
             background-repeat: repeat;
@@ -68,12 +80,19 @@
             -webkit-text-fill-color: transparent;
             -moz-background-clip: text;
             -moz-text-fill-color: transparent;
+            */
+            color: black;
+            -webkit-text-fill-color: white;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+            
 
         }
         p {
             font-size: 2rem;
             text-align: center;
             font-weight: 800;
+            /*
             background-image: linear-gradient(180deg, #dddddddc, #A60BDE);
             background-size: 50%;
             background-repeat: repeat;
@@ -81,6 +100,12 @@
             -webkit-text-fill-color: transparent;
             -moz-background-clip: text;
             -moz-text-fill-color: transparent;
+            */
+            color: black;
+            -webkit-text-fill-color: white;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+
 
         }
     </style>
