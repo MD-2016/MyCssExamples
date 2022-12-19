@@ -4,4 +4,22 @@
 
 body {
     background-color: rgb(53, 54, 58);
+    overflow: hidden;
+    margin: 0;
+}
+
+.gb {
+    color: rgba(255,255,255,0.87);
+}
+
+.glinks > * {
+    height: 1.2rem;
+    width: 1.2rem;
+    text-decoration: none;
+}
+
+.glinks {
+    display: flex;
+    flex: 0 auto;
+    
 }
