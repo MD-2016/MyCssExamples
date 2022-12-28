@@ -1,11 +1,13 @@
 * {
     box-sizing: border-box;
+    outline: 1px solid red;
 }
 
 :root {
     --img-width: 25rem;
     --img-height: 25rem;
     --gap-amount: 0.75rem;
+  
 
 }
 
@@ -25,7 +27,6 @@ body {
     gap: 0.313rem;
     padding-top: 1.563rem;
     padding-right: 1.563rem;
-    outline: 1px solid red;
     flex-direction: row;
 
 }
@@ -72,7 +73,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    outline: 1px solid red;
     margin-top: 15%;
 }
 
@@ -87,7 +87,6 @@ main {
     padding-top: 100px;
     display: flex;
     flex-direction: column;
-    outline: 1px solid red;
     justify-content: unset;
     align-items: center;
     margin-top: 25px;
@@ -175,7 +174,6 @@ footer {
     text-align: center;
     justify-content: flex-end;
     overflow: hidden;
-    outline: 1px solid red;
     /*
     margin-top: 100%;
     margin-left: 50%;
