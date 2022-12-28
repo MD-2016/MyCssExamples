@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Column Flexbox</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .wrapper {
+            min-height: 100vh;
+            background-color: #ccc;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header, footer {
+            height: 50px;
+            background-color: #666;
+            color: #ffff;
+        }
+
+        section {
+            display: flex;
+            flex: 1;
+            background-color: #999;
+            color: #000;
+        }
+
+        .columns {
+            display: flex;
+            flex: 1;
+        }
+
+        main {
+            flex: 1;
+            order: 2;
+            background-color: #eee;
+        }
+
+        .side1 {
+            width: 20%;
+            background-color: #ccc;
+            order: 1;
+        }
+        .side2 {
+            width: 20%;
+            order: 3;
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            Header
+        </header>
+        <section>
+            <div class="columns">
+                <main>
+                    content
+                </main>
+                <aside class="side1">
+                    Sidebar 1
+                </aside>
+                <aside class="side2">
+                    Sidebar 2
+                </aside>
+            </div>
+        </section>
+        <footer>
+            Footer
+        </footer>
+    </div>
+</body>
+</html>

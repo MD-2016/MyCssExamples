@@ -79,11 +79,13 @@ main {
     display: flex;
     flex-direction: row;
     padding-top: 25px;
+    max-width: 500px;
 }
 
 .shortcut {
     padding-top: 100px;
 }
+
 
 .searchContainer > svg {
     height: 24px;
