@@ -8,7 +8,6 @@
     <style>
         * {
             box-sizing: border-box;
-            outline: 1px solid red;
         }
 
         html, body {
@@ -33,6 +32,11 @@
             justify-content: space-between;
             border-radius: 100vh;
             gap: 0.75rem;
+            /*
+            min-width: min(100%, 20rem);
+            */
+            min-width: 50%;
+            max-width: 100%;
             
         }
 
@@ -40,55 +44,34 @@
             font-size: 1.15rem;
             border: none;
             color: #000000FF;
-            
-            width: min(100%, 15rem);
             outline: none;
-            
+            order: 1;
+            flex-grow: 2;
         }
 
-        /*
+        
 
         .moveGlass {
-            display: flex;
-            flex-direction:row;
-            align-items: center;
-            padding-left: 1rem;
+            order: 1;
         }
-        */
+        
 
 
         .moveGlass > svg path {
             fill:rgba(36, 36, 36, 0.74);
         }
 
-        /*
+        
         .moveMic{
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
-            padding-right: 1rem;
+            order: 2;
         }
         
-
-        .moveGlass > svg {
-            height: 24px;
-            width: 24px;
-        }
-
-        .moveMic > svg {
-            height: 24px;
-            width: 24px;
-        }
-
-        */
 
         svg {
             width: 1.5rem;
             height: 1.5rem;
             display: block;
         }
-
-
 
     </style>
 </head>
