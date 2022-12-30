@@ -19,20 +19,20 @@
             margin: 0;
             padding: 0;
             font-family: sans-serif;
-            background-color: #35363a;
+            background-color: rgb(53, 54, 58);
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         .searchBox {
-            background-color: rgb(255, 255, 255);
-            min-width: 50%;
-            min-height: 44px;
+            background-color: white;
+            padding: 0.5em 0.75em;
             display: flex;
             flex-flow: row nowrap;
             justify-content: space-between;
             border-radius: 100vh;
+            gap: 0.75rem;
             
         }
 
@@ -40,12 +40,13 @@
             font-size: 1.15rem;
             border: none;
             color: #000000FF;
-            padding-inline-start: 25px;
-            padding-inline-end: 52px;
-            min-width: 8rem;
+            
+            width: min(100%, 15rem);
             outline: none;
             
         }
+
+        /*
 
         .moveGlass {
             display: flex;
@@ -53,18 +54,21 @@
             align-items: center;
             padding-left: 1rem;
         }
+        */
 
 
         .moveGlass > svg path {
             fill:rgba(36, 36, 36, 0.74);
         }
 
+        /*
         .moveMic{
             display: flex;
             flex-flow: row nowrap;
             align-items: center;
             padding-right: 1rem;
         }
+        
 
         .moveGlass > svg {
             height: 24px;
@@ -75,6 +79,15 @@
             height: 24px;
             width: 24px;
         }
+
+        */
+
+        svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            display: block;
+        }
+
 
 
     </style>
