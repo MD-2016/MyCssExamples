@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Two Column Layout</title>
+    <style>
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+       body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 10vw 30vw 10vw;
+  grid-gap: 1em;
+}
+
+header,
+footer {
+  grid-column: 1 / span 5;
+}
+
+main {
+  grid-column: 1 / span 2;
+}
+
+aside {
+  grid-column: span 2;
+}
+
+@media (max-width: 700px) {
+  
+  main,
+  aside {
+    grid-column: 1 / span 5;
+  }
+  
+}
+
+/* Demo Specific Styles */
+body {
+  margin: 0 auto;
+  max-width: 56em;
+  padding: 1em 0;
+}
+
+header,
+main,
+aside,
+footer {
+  background: #eaeaea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header,
+footer {
+  height: 10vw;;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Header</h1>
+    </header>
+    <main>
+        <h1>Main</h1>
+    </main>
+    <aside>
+        <h1>Sidebar</h1>
+    </aside>
+    <footer>
+        <h1>Footer</h1>
+    </footer>
+</body>
+</html>
