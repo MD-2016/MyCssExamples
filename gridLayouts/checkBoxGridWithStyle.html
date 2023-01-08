@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stylish Checkboxes Using Grid</title>
+    <style>
+
+        :root {
+            --form-color: #3d0274; 
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        .formControl {
+            font-family: system-ui, sans-serif;
+            font-size: 2rem;
+            font-weight: bold;
+            line-height: 1.1;
+            display: grid;
+            grid-template-columns: 1em auto;
+            gap: 0.5em;
+        
+        }
+        main {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50vh;
+
+        }
+
+        input[type="checkbox"] {
+            appearance: none;
+            background-color: #FFF;
+            margin: 0;
+            font: inherit;
+            color: currentColor;
+            width: 1.15em;
+            height: 1.15em;
+            border: 0.15em solid currentColor;
+            border-radius: 0.15em;
+            transform: translateY(-0.075em);
+            display: grid;
+            place-content: center;
+        }
+
+        input[type="checkbox"]::before {
+            content: "";
+            width: 0.65em;
+            height: 0.65em;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em var(--form-color);
+            background-color: CanvasText;
+        }
+
+        input[type="checkbox"]:checked::before {
+            transform: scale(1);
+        }
+
+        .formControl + .formControl {
+            margin-top: 1em;
+        }
+    </style>
+  </head>
+  <body>
+    <main>
+      <form action="">
+        <label for="" class="formControl">
+          <input type="checkbox" name="checkbox" />
+          Checkbox
+        </label>
+        <label for="" class="formControl">
+          <input type="checkbox" name="checkbox-checked" checked />
+          Checkbox - Checked
+        </label>
+      </form>
+    </main>
+  </body>
+</html>
