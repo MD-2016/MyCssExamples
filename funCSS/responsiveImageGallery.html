@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Image Gallery With Hover Effect</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        text-rendering: optimizeSpeed;
+        line-height: 1.2;
+        font-family: system-ui, sans-serif;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .gallery {
+        list-style: none;
+        padding: 0;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
+        gap: 2rem;
+      }
+
+      .gallery img {
+        display: block;
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+        height: 15rem;
+        transform: scale(1) translate(0, 0);
+        transition: transform 1100ms ease-in;
+      }
+
+      .gallery figure {
+        margin: 0;
+        height: 15rem;
+        display: grid;
+        grid-template-areas: "pic";
+        place-items: end;
+        border-radius: 0.5rem;
+        overflow: hidden;
+      }
+
+        .gallery figure, .gallery img {
+            aspect-ratio: 4/3;
+            height: auto;
+        }
+
+      .gallery figure > * {
+        grid-area: pic;
+      }
+
+      .gallery figcaption {
+        transition: transform 600ms 500ms ease-in;
+        padding: 0.25em 0.5em;
+        border-radius: 4px 0 0 0;
+        background-color: rgba(255, 255, 255, 0.87);
+        z-index: 1;
+      }
+
+      .gallery figure:hover figcaption,
+      .gallery figure:focus figcaption {
+        transform: translateY(0);
+      }
+
+      .gallery figure:hover img,
+      .gallery figure:focus img {
+        transform: scale(1.3) translate(-8%, -3%);
+      }
+
+      .gallery figure:focus {
+        outline: 2px solid white;
+        outline-offset: 2px;
+      }
+
+      @media (any-hover: hover) and (any-pointer: fine) {
+        .gallery figcaption {
+          transform: translateY(100%);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .gallery * {
+          transition-duration: 1ms !important;
+        }
+
+        .gallery img {
+          transform: none !important;
+        }
+
+        .gallery figcaption {
+          transition-delay: 1ms;
+        }
+      }
+
+      .gallery figure::after {
+        content: "";
+        grid-area: pic;
+        width: 100%;
+        height: 100%;
+        box-shadow: inset 0 0 2rem 2.5rem rgba(0, 0, 0, 0.65);
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="gallery" role="list">
+      <li>
+        <figure tabindex="0">
+          <img src="https://picsum.photos/540" />
+          <figcaption>Pic 1</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure tabindex="0">
+          <img src="https://picsum.photos/400" />
+          <figcaption>Pic 2</figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure tabindex="0">
+          <img src="https://picsum.photos/800" />
+          <figcaption>Pic 3</figcaption>
+        </figure>
+      </li>
+    </ul>
+  </body>
+</html>
