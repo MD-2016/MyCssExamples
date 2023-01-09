@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Layout With a Background Overlay</title>
+    <style>
+      header {
+        display: grid;
+        grid-template-areas: "hero";
+        place-items: center;
+        height: 70vh;
+        max-height: 50rem;
+        background-color: rgba(60, 135, 179, 0.7);
+        overflow: hidden;
+      }
+     
+      header > * {
+        grid-area: hero;
+      }
+      header img {
+        -o-object-fit: cover;
+        object-fit: cover;
+        height: min(70vh, 50rem);
+        width: 100%;
+        z-index: -1;
+      }
+      header .hero {
+        z-index: 1;
+        text-align: center;
+        color: #fff;
+        min-width: 1rem;
+        padding: 1em;
+      }
+      header .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin: 0 0 0.75em;
+      }
+      header .hero p {
+        font-size: 1.78rem;
+      }
+
+      .navLink {
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        align-self: start;
+        background-color: #fff;
+        color: #238566;
+        border-radius: 100vh;
+        box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+        padding: 0.25em 0.75em;
+        min-width: 1em;
+        min-height: 2.75rem;
+        text-align: center;
+        line-height: 1.0;
+        transition: 220ms all ease-in-out;
+      }
+      .navLink:hover,
+      .navLink:active {
+        background-color: #e7f9f3;
+      }
+      .navLink:focus {
+        outline-style: solid;
+        outline-color: transparent;
+        box-shadow: 0 0 0 8px #86dfc3;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="hero">
+        <h1>Overlay</h1>
+        <p>This image just keeps changing</p>
+        <a href="#" class="navLink">See Now</a>
+      </div>
+      <img src="https://picsum.photos/1440/960" alt="pic" />
+    </header>
+  </body>
+</html>
