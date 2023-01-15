@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex & Grid Together</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+body {
+  background-color: #eee;
+  color: #434344;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+.container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 3.75rem;
+  display: grid;
+  grid-template-columns: 0.4fr 0.3fr 0.3fr;
+  grid-column-gap: 0.625rem;
+  grid-row-gap: 0.938rem;
+  background-color: #fff;
+}
+
+
+header {
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+  color: #9f9c9c;
+  text-transform: uppercase;
+  border-bottom: 2px solid #7ea1a8;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+header nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+header nav li {
+    margin-right: 15px;
+}
+
+header button {
+    border: none;
+    padding: 0.5em 1.563em;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 1.25rem;
+    background-color: #232c7a;
+}
+
+
+.pic {
+  margin-right: 1.5rem;
+  color: #50c6db;
+}
+
+.hero {
+  grid-column: 1 / 2;
+  grid-row-start: 2 / 3;
+  background-color: #d5c9e2;
+  min-height: 300px;
+  background-image: url("https://picsum.photos/500/332");
+}
+
+.hero-unit img {
+ width: 100%; 
+ height: auto;   
+}
+
+.sidebar {
+  grid-column: 1 / 2;
+  grid-row: 3 / 5;
+  padding: 1.25rem;
+  border-top: 3px solid #7e3f59;
+  background-color: #f9f9f9;
+}
+
+.sidebar h3 {
+  margin-top: .75rem;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  margin-top: 1rem;
+  font-size: .75rem;
+}
+
+.sidebar ul > li {
+    padding: .25rem 0;
+}
+
+.sidebar img {
+  max-width: 100%;
+}
+
+main {
+  grid-column: 2 / 4;
+  grid-row: 2 / 4;
+}
+
+main h2 {
+    font-size: 32px;
+    margin-bottom: 1rem;
+    color: #50c6db;
+}
+
+main p {
+    font-size: 1rem;
+    margin-bottom: .75rem;
+}
+
+main img {
+    width: 100%;
+}
+
+.helperSection {
+  grid-column: 2 / 4;
+  grid-row: 4 / 5;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid #ececec;
+  justify-content: space-between;
+}
+
+.helperSection h3 {
+  font-weight: 500;
+  margin-bottom: .5rem;
+  flex: 1 0 auto;
+}
+
+.helperSection p {
+  font-size: .75rem;
+  margin-bottom: .75rem;
+}
+
+.helperSection a {
+  background-color: white;
+  border: 2px solid #50c6db;
+  color: #50c6db;
+  padding: .5rem;
+}
+.helperInfo {
+   flex: 0 1 calc(33% - .5rem);
+}
+
+.imageGallery {
+  grid-column: 1 / 3;
+  grid-row: 5 / 6;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 1rem;
+}
+
+.imageGallery .pics {
+    background-color: white;
+    flex: 1 1 9.375rem;
+}
+
+.imageGallery .pics img {
+ max-width: 100%;
+}
+
+.funContent {
+  grid-column: 3 / 4;
+  grid-row: 5 / 6;
+  padding: 0 2rem;
+}
+
+.funContent h4 {
+  margin-bottom: .5rem;
+  padding-bottom: .5rem;
+  font-size: 1.5rem;
+  border-bottom: 1px solid #ececec;
+}
+
+.funContent ul {
+  margin-left: 1.5rem;
+}
+
+footer {
+  grid-column: 1 / 4;
+  grid-row: 6 / 7;
+  color: #fff;
+  text-align: center;
+  padding: 1.25rem 0;
+  background-color: #7e7b7b;
+}  
+
+footer p {
+    color: #434344;
+    font-size: 0.75rem;
+    padding: 0.625em;
+    color: #FFF;
+}
+
+    
+    
+    </style>
+</head>
+<body>
+    <div class="container"> 
+        <header>
+          <p class="pic"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="60" height="70" viewBox="0 0 24 24"><path d="M13 8.998h5.5l-5.5-5.5v5.5zm-7-7h8l6 6v12a2 2 0 0 1-2 2H5.99a1.992 1.992 0 0 1-1.99-2l.01-16c0-1.104.884-2 1.99-2zM6.121 15.5l3.742 3.743l1.414-1.415L8.95 15.5l2.328-2.328l-1.414-1.415L6.122 15.5zm11.156 0l-3.742-3.743l-1.414 1.415L14.45 15.5l-2.328 2.328l1.414 1.415l3.742-3.743z" fill="currentColor"/></svg></a></p>
+          <nav>
+                <ul>
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Fun</a></li>
+                  <li><a href="#">Music</a></li>
+                </ul>
+              </nav>
+            <button>Login</button>
+            </header>
+        <div class="hero"></div>
+        <aside class="sidebar">
+           
+          <h3>Recent Posts</h3>
+              <ul>
+                  <li><a href="#">Gaming</a></li>
+                  <li><a href="#">Hacking</a></li>
+                  <li><a href="#">Poker</a></li>
+                  <li><a href="#">Real Estate</a></li>
+                  <li><a href="#">Wrestling</a></li>
+                </ul>
+        </aside>
+        
+        <main>
+                  <h2>Flexbox and CSS Grid Layout</h2>
+      
+                  <p>This is an attempt to combine both layouts</p>
+          
+          <p>The goal is to make it easier to understand how you can use both flex and grid to make layouts. The point is using flex for the inner content. We also use grid to get the layout for the overall site down.</p>
+          
+          <p>Check out browser dev tools to see what's happening.
+          </p>
+          
+        </main>
+        <div class="helperSection">
+          <div class="helperInfo">
+            <h3>View Grid Help</h3>
+            <p>Grid tips below...</p>
+            <a href="https://css-tricks.com/snippets/css/complete-guide-grid/">Read</a>
+          </div>
+          <div class="helperInfo">
+            <h3>View Flexbox Help</h3>
+            <p>Flex tips below...</p>
+            <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">Read</a>
+          </div>
+          <div class="helperInfo">
+            <h3>Using Both</h3>
+            <p>Tips on using both below...</p>
+            <a href="https://ishadeed.com/article/grid-layout-flexbox-components/">Read</a>
+          </div>
+        </div>
+        
+        <div class="imageGallery">
+        
+          <div class="pics"><img src="https://picsum.photos/500/"></div>
+          
+          <div class="pics"><img src="https://picsum.photos/500?random=1"></div>
+          
+          <div class="pics"><img src="https://picsum.photos/500?random=2"></div>
+          
+          <div class="pics"><img src="https://picsum.photos/500?random=3"></div>
+          
+           <div class="pics"><img src="https://picsum.photos/500?random=4"></div>
+       
+          
+          <div class="pics"><img src="https://picsum.photos//500?random=5"></div>
+
+          <div class="pics"><img src="https://picsum.photos//500?random=6"></div>
+          <div class="pics"><img src="https://picsum.photos//500?random=7"></div>
+        
+        
+        </div>
+        <div class="funContent">
+          <h4>Fun Content</h4>
+          <ul>
+                  <li><a href="#">Engineering</a></li>
+                  <li><a href="#">Mathematics</a></li>
+                  <li><a href="#">Weather</a></li>
+                </ul>
+        
+        </div>
+        <footer>
+          <h3>Attempt at Grid and Flex Layout</h3>
+          <p>Still learning new CSS stuff daily</p></footer>
+      </div>
+</body>
+</html>
