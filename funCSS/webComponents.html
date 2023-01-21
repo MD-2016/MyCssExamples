@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Components Example</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <template id="book-template">
+        <li>
+           <span class="title">
+           </span> 
+           &mdash;
+           <span class="artist">
+           </span>
+           &mdash;
+           <span class="year">
+           </span>
+           &mdash;
+           <span class="genre">
+           </span>
+        </li>
+    </template>
+
+    <template id="book-template-2">
+        <li>
+           <span class="title">
+           </span> 
+           &mdash;
+           <span class="artist">
+           </span>
+           &mdash;
+           <span class="year">
+           </span>
+           &mdash;
+           <span class="genre">
+           </span>
+        </li>
+    </template>
+
+    <ul id="books">
+    </ul>
+
+    <fieldset id="templates">
+        <legend>Choose Songs between 1984 and 1985</legend>
+
+        <label>
+            <input type="radio" name="template" value="book-template" checked> 1984
+        </label>
+        <label>
+            <input type="radio" name="template" value="book-template-2"> 1985
+        </label>
+    </fieldset>
+
+    <script>
+        'use strict'
+
+        const songs1 = [
+            {
+                title: "What's Love Got to Do with It",
+                artist: "Tina Turner",
+                year: "1984",
+                genre: "Pop",
+            },
+            {
+                title: "Footloose",
+                artist: "Kenny Loggins",
+                year: "1984",
+                genre: "Pop Rock",
+            },
+            {
+                title: "Against All Odds (Take a Look at Me Now)",
+                artist: "Phil Collins",
+                year: "1984",
+                genre: "Pop",
+            },
+            {
+                title: "Hello",
+                artist: "Lionel Richie",
+                year: "1984",
+                genre: "R&B",
+            },
+            {
+                title: "Owner of a Lonely Heart",
+                artist: "Yes",
+                year: "1984",
+                genre: "Dance Rock",
+            },
+            {
+                title: "Karma Chameleon",
+                artist: "Culture Club",
+                year: "1984",
+                genre: "Pop",
+            },
+            {
+                title: "Missing You",
+                artist: "John Waite",
+                year: "1984",
+                genre: "Soft Rock",
+            },
+          
+        ];
+
+        const songs2 = [
+        {
+                title: "Careless Whisper",
+                artist: "George Michael",
+                year: "1985",
+                genre: "Pop",
+            },
+            {
+                title: "Wake Me Up Before You Go-Go",
+                artist: "Wham",
+                year: "1985",
+                genre: "Pop",
+            },
+            {
+                title: "I Want to Know What Love Is",
+                artist: "Foreigner",
+                year: "1985",
+                genre: "Soft Rock",
+            },
+            {
+                title: "Out of Touch",
+                artist: "Daryl Hall & John Oates",
+                year: "1985",
+                genre: "Dance Rock",
+            },
+            {
+                title: "Everybody Wants to Rule the World",
+                artist: "Tears for Fears",
+                year: "1985",
+                genre: "New Wave",
+            },
+            {
+                title: "Money for Nothing",
+                artist: "Dire Straits",
+                year: "1985",
+                genre: "Pop Rock",
+            },
+            {
+                title: "Can't Fight This Feeling",
+                artist: "REO Speedwagon",
+                year: "1985",
+                genre: "Soft Rock",
+            },
+            {
+                title: "Part-Time Lover",
+                artist: "Stevie Wonder",
+                year: "1985",
+                genre: "R&B",
+            }
+        ];
+
+        function appendBooks(templateId) {
+            const booksList = document.getElementById("books");
+            const fragment = document.getElementById(templateId);
+
+            booksList.innerHTML = "";
+
+            songs1.forEach(book => {
+                const instance = document.importNode(fragment.content, true);
+
+                instance.querySelector('.title').innerHTML = book.title;
+                instance.querySelector('.artist').innerHTML = book.artist;
+                instance.querySelector('.year').innerHTML = book.year;
+                instance.querySelector('.genre').innerHTML = book.genre;
+
+                booksList.appendChild(instance);
+            });
+
+        }
+
+        document.getElementById('templates').addEventListener('change', (event) => appendBooks(event.target.value));
+        appendBooks('book-template');
+    </script>
+</body>
+</html>
