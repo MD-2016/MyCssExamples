@@ -1,189 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Components Example</title>
     <style>
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
 
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-        }
+      label {
+        display: block;
+        margin-bottom: 0.7rem;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        
+      }
+
+      fieldset {
+        max-width: 100%;
+      }
+
+      ul li {
+        padding: 1.2em;
+      }
+
+      .years {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        margin-left: -2%;
+      }
+      fieldset {
+        margin-top: 3%;
+        padding: 0.1em 0.5em;
+        margin-left: -8%;
+      }
+
+      .years legend {
+        padding: 1em;
+      }
+
+      .years label {
+        padding: 0.2em;
+      }
     </style>
-</head>
-<body>
-    <template id="book-template">
-        <li>
-           <span class="title">
-           </span> 
-           &mdash;
-           <span class="artist">
-           </span>
-           &mdash;
-           <span class="year">
-           </span>
-           &mdash;
-           <span class="genre">
-           </span>
-        </li>
+  </head>
+  <body>
+    <template id="song-template">
+      <li>
+        <span class="title"> </span>
+        &mdash;
+        <span class="artist"> </span>
+        &mdash;
+        <span class="year"> </span>
+        &mdash;
+        <span class="genre"> </span>
+      </li>
     </template>
 
-    <template id="book-template-2">
-        <li>
-           <span class="title">
-           </span> 
-           &mdash;
-           <span class="artist">
-           </span>
-           &mdash;
-           <span class="year">
-           </span>
-           &mdash;
-           <span class="genre">
-           </span>
-        </li>
+    <template id="song-template-2">
+      <li>
+        <span class="title"> </span>
+        &mdash;
+        <span class="artist"> </span>
+        &mdash;
+        <span class="year"> </span>
+        &mdash;
+        <span class="genre"> </span>
+      </li>
     </template>
 
-    <ul id="books">
-    </ul>
+    <ul id="songs"></ul>
+    <fieldset id="year-choosen">
+        <div class="years">
+      <legend>Choose Songs between 1984 and 1985</legend>
 
-    <fieldset id="templates">
-        <legend>Choose Songs between 1984 and 1985</legend>
-
-        <label>
-            <input type="radio" name="template" value="book-template" checked> 1984
-        </label>
-        <label>
-            <input type="radio" name="template" value="book-template-2"> 1985
-        </label>
+      <label>
+        <input type="radio" name="template" value="song-template" checked />
+        1984
+      </label>
+      <label>
+        <input type="radio" name="template" value="song-template-2" /> 1985
+      </label>
+    </div>
     </fieldset>
+    
 
     <script>
-        'use strict'
+      "use strict";
 
-        const songs1 = [
-            {
-                title: "What's Love Got to Do with It",
-                artist: "Tina Turner",
-                year: "1984",
-                genre: "Pop",
-            },
-            {
-                title: "Footloose",
-                artist: "Kenny Loggins",
-                year: "1984",
-                genre: "Pop Rock",
-            },
-            {
-                title: "Against All Odds (Take a Look at Me Now)",
-                artist: "Phil Collins",
-                year: "1984",
-                genre: "Pop",
-            },
-            {
-                title: "Hello",
-                artist: "Lionel Richie",
-                year: "1984",
-                genre: "R&B",
-            },
-            {
-                title: "Owner of a Lonely Heart",
-                artist: "Yes",
-                year: "1984",
-                genre: "Dance Rock",
-            },
-            {
-                title: "Karma Chameleon",
-                artist: "Culture Club",
-                year: "1984",
-                genre: "Pop",
-            },
-            {
-                title: "Missing You",
-                artist: "John Waite",
-                year: "1984",
-                genre: "Soft Rock",
-            },
-          
-        ];
-
-        const songs2 = [
+      const songs1 = [
         {
-                title: "Careless Whisper",
-                artist: "George Michael",
-                year: "1985",
-                genre: "Pop",
-            },
-            {
-                title: "Wake Me Up Before You Go-Go",
-                artist: "Wham",
-                year: "1985",
-                genre: "Pop",
-            },
-            {
-                title: "I Want to Know What Love Is",
-                artist: "Foreigner",
-                year: "1985",
-                genre: "Soft Rock",
-            },
-            {
-                title: "Out of Touch",
-                artist: "Daryl Hall & John Oates",
-                year: "1985",
-                genre: "Dance Rock",
-            },
-            {
-                title: "Everybody Wants to Rule the World",
-                artist: "Tears for Fears",
-                year: "1985",
-                genre: "New Wave",
-            },
-            {
-                title: "Money for Nothing",
-                artist: "Dire Straits",
-                year: "1985",
-                genre: "Pop Rock",
-            },
-            {
-                title: "Can't Fight This Feeling",
-                artist: "REO Speedwagon",
-                year: "1985",
-                genre: "Soft Rock",
-            },
-            {
-                title: "Part-Time Lover",
-                artist: "Stevie Wonder",
-                year: "1985",
-                genre: "R&B",
-            }
-        ];
+          title: "What's Love Got to Do with It",
+          artist: "Tina Turner",
+          year: "1984",
+          genre: "Pop",
+        },
+        {
+          title: "Footloose",
+          artist: "Kenny Loggins",
+          year: "1984",
+          genre: "Pop Rock",
+        },
+        {
+          title: "Against All Odds (Take a Look at Me Now)",
+          artist: "Phil Collins",
+          year: "1984",
+          genre: "Pop",
+        },
+        {
+          title: "Hello",
+          artist: "Lionel Richie",
+          year: "1984",
+          genre: "R&B",
+        },
+        {
+          title: "Owner of a Lonely Heart",
+          artist: "Yes",
+          year: "1984",
+          genre: "Dance Rock",
+        },
+        {
+          title: "Karma Chameleon",
+          artist: "Culture Club",
+          year: "1984",
+          genre: "Pop",
+        },
+        {
+          title: "Missing You",
+          artist: "John Waite",
+          year: "1984",
+          genre: "Soft Rock",
+        },
+      ];
 
-        function appendBooks(templateId) {
-            const booksList = document.getElementById("books");
-            const fragment = document.getElementById(templateId);
+      const songs2 = [
+        {
+          title: "Careless Whisper",
+          artist: "George Michael",
+          year: "1985",
+          genre: "Pop",
+        },
+        {
+          title: "Wake Me Up Before You Go-Go",
+          artist: "Wham",
+          year: "1985",
+          genre: "Pop",
+        },
+        {
+          title: "I Want to Know What Love Is",
+          artist: "Foreigner",
+          year: "1985",
+          genre: "Soft Rock",
+        },
+        {
+          title: "Out of Touch",
+          artist: "Daryl Hall & John Oates",
+          year: "1985",
+          genre: "Dance Rock",
+        },
+        {
+          title: "Everybody Wants to Rule the World",
+          artist: "Tears for Fears",
+          year: "1985",
+          genre: "New Wave",
+        },
+        {
+          title: "Money for Nothing",
+          artist: "Dire Straits",
+          year: "1985",
+          genre: "Pop Rock",
+        },
+        {
+          title: "Can't Fight This Feeling",
+          artist: "REO Speedwagon",
+          year: "1985",
+          genre: "Soft Rock",
+        },
+        {
+          title: "Part-Time Lover",
+          artist: "Stevie Wonder",
+          year: "1985",
+          genre: "R&B",
+        },
+      ];
 
-            booksList.innerHTML = "";
+      function appendBooks(templateId) {
+        const booksList = document.getElementById("songs");
+        const fragment = document.getElementById(templateId);
 
-            songs1.forEach(book => {
-                const instance = document.importNode(fragment.content, true);
+        booksList.innerHTML = "";
 
-                instance.querySelector('.title').innerHTML = book.title;
-                instance.querySelector('.artist').innerHTML = book.artist;
-                instance.querySelector('.year').innerHTML = book.year;
-                instance.querySelector('.genre').innerHTML = book.genre;
+        if (templateId === "song-template") {
+          songs1.forEach((element) => {
+            const instance = document.importNode(fragment.content, true);
 
-                booksList.appendChild(instance);
-            });
+            instance.querySelector(".title").innerHTML = element.title;
+            instance.querySelector(".artist").innerHTML = element.artist;
+            instance.querySelector(".year").innerHTML = element.year;
+            instance.querySelector(".genre").innerHTML = element.genre;
 
+            booksList.appendChild(instance);
+          });
+        } else {
+          songs2.forEach((element) => {
+            const instance = document.importNode(fragment.content, true);
+
+            instance.querySelector(".title").innerHTML = element.title;
+            instance.querySelector(".artist").innerHTML = element.artist;
+            instance.querySelector(".year").innerHTML = element.year;
+            instance.querySelector(".genre").innerHTML = element.genre;
+
+            booksList.appendChild(instance);
+          });
         }
+      }
 
-        document.getElementById('templates').addEventListener('change', (event) => appendBooks(event.target.value));
-        appendBooks('book-template');
+      document.getElementById('year-choosen').addEventListener('change', (event) => appendBooks(event.target.value));
+      appendBooks("song-template");
     </script>
-</body>
+  </body>
 </html>
