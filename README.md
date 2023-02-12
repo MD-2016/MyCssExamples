@@ -6,5 +6,3 @@
 ## Cobra Kai Grid
     
     This project is meant to build a grid layout using a topic of interest and have it be responsive on mobile and handle landscape view. The layout uses the grid display and puts each character in a rows of 4 characters each. If the screen is downsized to mobile, the characters are stacked into one column.
-
-## Linux Test
